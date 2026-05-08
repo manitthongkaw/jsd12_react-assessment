@@ -10,3 +10,8 @@
 - รันหน้าได้ปกติ และ Router ทำงาน
 - - http://localhost:5173/ แสดง Home
 - - http://localhost:5173/owner แสดง Owner
+- สร้างข้อมูลหลัก และปุ่มในหน้า Home
+- ทำฟังก์ชั่นของปุ่มหน้า Home โดยใช้ useState แล้วเรียกใช้ผ่าน useContext
+- สร้างข้อมูลในหน้า Owner
+- สร้าง Navbar.jsx แล้วนำมาใส่ที่ Home, Owner components
+- เนื่องจากมี 2 หน้าเลยไม่ทำ Layout Router
