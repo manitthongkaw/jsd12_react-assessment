@@ -1,5 +1,12 @@
 # ขั้นตอนที่ผมทำงานครับ
-- ติดตั้ง vite + tailwind css
+- ติดตั้ง Vite React JS + Tailwind CSS
 - เตรียม Home.jsx , Owner.jsx ไว้ใน /pages
-- สร้าง router ใน App.jsx
+- สร้าง Router ใน App.jsx
 - สร้าง React Context แล้วเรียกใน main.jsx
+- เช็คความถูกต้อง npm run dev
+- พบว่าลืมติดตั้ง npm i react-router-dom
+- และพบว่าสร้าง /contexts /pages ไว้ผิดที่ จึงย้ายมาไว้ใน /src
+- เช็คความถูกต้องอีกครั้ง
+- รันหน้าได้ปกติ และ Router ทำงาน
+- - http://localhost:5173/ แสดง Home
+- - http://localhost:5173/owner แสดง Owner
