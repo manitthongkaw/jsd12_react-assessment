@@ -15,3 +15,6 @@
 - สร้างข้อมูลในหน้า Owner
 - สร้าง Navbar.jsx แล้วนำมาใส่ที่ Home, Owner components
 - เนื่องจากมี 2 หน้าเลยไม่ทำ Layout Router
+- สร้างตารางแสดงผลของ Home User
+- สร้างตารางแสดงผลของ Home Admin
+- สร้างแบบฟอร์มสำหรับเพิ่มข้อมูลของ Home Admin

@@ -1,3 +1,13 @@
 @import "tailwindcss";
 
 #root {@apply h-dvh flex flex-col items-center gap-8 text-slate-600 px-4 md:px-8 py-8 bg-slate-50;}
+
+table {@apply w-full mx-auto;}
+table tr {@apply border-t border-slate-200;}
+table tbody tr:last-child {@apply border-b;}
+table tbody tr {@apply hover:bg-slate-100 transition-all;}
+table :is(th, td) {@apply align-middle leading-7 px-2 xl:px-5 py-2;}
+table th {@apply text-left;}
+
+form {@apply flex flex-wrap gap-4 p-4 border border-slate-200 rounded-2xl;}
+input {@apply grow leading-5.5 placeholder:text-slate-400 disabled:text-slate-400 px-4 py-2 border border-slate-200 hover:border-slate-400 disabled:border-slate-200 rounded-lg bg-white;}
