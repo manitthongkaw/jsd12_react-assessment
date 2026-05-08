@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
-#root {@apply h-dvh flex flex-col items-center gap-8 text-slate-600 px-4 md:px-8 py-8 bg-slate-50;}
+#root {@apply min-h-dvh flex flex-col items-center gap-8 text-slate-600 px-4 md:px-8 pb-8 bg-slate-50;}
 
 table {@apply w-full mx-auto;}
 table tr {@apply border-t border-slate-200;}
 table tbody tr:last-child {@apply border-b;}
 table tbody tr {@apply hover:bg-slate-100 transition-all;}
 table :is(th, td) {@apply align-middle leading-7 px-2 xl:px-5 py-2;}
+table :is(th, td):first-child {@apply pl-4 xl:pl-10;}
+table :is(th, td):last-child  {@apply pr-4 xl:pr-10;}
 table th {@apply text-left;}
 
 form {@apply flex flex-wrap gap-4 p-4 border border-slate-200 rounded-2xl;}

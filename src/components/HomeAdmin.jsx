@@ -1,13 +1,18 @@
+import { useContext/*, useState*/ } from "react"
+import { MessageContext } from "../contexts/messageContext/MessageContext";
+
 export default function HomeAdmin() {
 
+  const {members, formData, handleChange, handleSubmit, handleDeleteMember} = useContext(MessageContext)
+
   return (
-    <section id="HomeAdmin" className="flex flex-col gap-4">
-      <form>
+    <section id="HomeAdmin" className="flex flex-col gap-8">
+      <form onSubmit={handleSubmit}>
         <h2 className="w-full text-lg font-semibold">Create User Here</h2>
-        <input type="text" id="firstName" name="firstName" placeholder="First name" maxlength="120" required />
-        <input type="text" id="lastName" name="lastName" placeholder="Last name" maxlength="120" required />
-        <input type="text" id="position" name="position" placeholder="Position" maxlength="120" required />
-        <button type="submit" class="cursor-pointer shrink-0 leading-10 px-4 text-white rounded-lg bg-green-600 hover:bg-green-700 transition-all" onclick="event.preventDefault()">Save</button>
+        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Name" maxLength="120" required />
+        <input type="text" id="lastname" name="lastname" value={formData.lastname} onChange={handleChange} placeholder="Last name" maxLength="120" required />
+        <input type="text" id="position" name="position" value={formData.position} onChange={handleChange} placeholder="Position" maxLength="120" required />
+        <button type="submit" className="cursor-pointer shrink-0 leading-10 px-4 text-white rounded-lg bg-green-600 hover:bg-green-700 transition-all">Save</button>
       </form>
       <table>
         <colgroup>
@@ -25,24 +30,21 @@ export default function HomeAdmin() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td className="text-center"><button className="cursor-pointer size-7 font-semibold text-white rounded-lg bg-red-500 hover:bg-red-600 transition-all">X</button></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td className="text-center"><button className="cursor-pointer size-7 font-semibold text-white rounded-lg bg-red-500 hover:bg-red-600 transition-all">X</button></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td className="text-center"><button className="cursor-pointer size-7 font-semibold text-white rounded-lg bg-red-500 hover:bg-red-600 transition-all">X</button></td>
-          </tr>
+          {members.length > 0
+            ? ([...members].sort((a, b) => Number(b.id) - Number(a.id)).map((member, index) => (
+                <tr key={index}>
+                  <td>{member.name || "-"}</td>
+                  <td>{member.lastname || "-"}</td>
+                  <td>{member.position || "-"}</td>
+                  <td className="text-center">
+                    <button type="button" onClick={() => handleDeleteMember(member.id)}
+                      className="cursor-pointer size-7 font-semibold text-white rounded-lg bg-red-500 hover:bg-red-600 transition-all">X</button></td>
+                </tr>
+              )))
+            : <tr>
+                <td colSpan="4" className="text-center">Data not found.</td>
+              </tr>
+          }
         </tbody>
       </table>
     </section>

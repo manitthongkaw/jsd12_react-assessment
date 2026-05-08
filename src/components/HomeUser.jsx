@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { MessageContext } from "../contexts/messageContext/MessageContext";
+
 export default function HomeUser() {
+
+  const {members} = useContext(MessageContext)
 
   return (
     <section id="HomeUser">
@@ -11,21 +16,18 @@ export default function HomeUser() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-          </tr>
+          {members.length > 0
+            ? ([...members].sort((a, b) => Number(b.id) - Number(a.id)).map((member, index) => (
+                <tr key={index}>
+                  <td>{member.name || "-"}</td>
+                  <td>{member.lastname || "-"}</td>
+                  <td>{member.position || "-"}</td>
+                </tr>
+              )))
+            : <tr>
+                <td colSpan="3" className="text-center">Data not found.</td>
+              </tr>
+          }
         </tbody>
       </table>
     </section>
